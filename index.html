@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Cayman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/cayman.css">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Cayman</h1>
+      <h2 class="project-tagline">Step by step instruction of how to setup GitLab CI/CD</h2>
+      <a href="#" class="btn">View on GitHub</a>
+    </section>
+
+    <section class="main-content">
+      <blockquote>
+        <h4>Note:</h4>
+        <p>For this there are two servers both running CentOs7, configured in VirtualBox both with NAT Network Adaptor (for internet access) and Host-Only (for host to VM and VM to VM communication/ssh).</p>
+      </blockquote>
+
+      <ul class="task-list">
+        <li>GitLab (runnig both GitLab and GitLab-Runner).</li>
+        <li>WebServer (hosting a web app in Apache/HTTPD server).</li>
+      </ul>
+
+      <ol>
+        <li>
+          <b>GitLab Installation</b> <br>
+          <input type="checkbox" class="task-list-item-checkbox" checked="" disabled="">
+
+          Install GitLab, checkout this: <a href="https://about.gitlab.com/install/#centos-7">GitLab Installation, using GitLab Omnibus package</a>
+        </li>
+
+        <br>
+        <li>
+          <b>GitLab-Runner installation and setup</b> <br>
+          <input type="checkbox" class="task-list-item-checkbox" checked="" disabled="">
+          Install gitlab-runner, checkout this: <a href="https://docs.gitlab.com/runner/install/linux-manually.html#using-debrpm-package">Install GitLab Runner using deb/rpm package</a>
+        </li>
+
+        <br>
+        <li>
+          <b>Enveroment SetUp</b> <br>
+          <input type="checkbox" class="task-list-item-checkbox" checked="" disabled="">
+          Generate SSH Key in your GitLab Server and copy the corresponsing public key to the WebServer, checkout steps: <a href="https://gist.github.com/thedan06/f3cb42775fbf9adc4f0fe5ff840019d2">Generating a passphraseless SSH key and use
+            it to SSH to your Linux Server(s)</a>
+
+          <br><br>
+          <input type="checkbox" class="task-list-item-checkbox" checked="" disabled="">
+          Generate SSH key in your WebServer and copy the corresponding public key and copy it to the GitLab GUI, checkout this: <a href="https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account">Adding an SSH key to your GitLab
+            account</a>
+        </li>
+
+        <br>
+        <li>
+          <b>CI/CD SetUp (the real magic)</b> <br>
+          <input type="checkbox" class="task-list-item-checkbox" checked="" disabled="">
+          Add <code>.gitlab-ci.yml</code> in the root of your project and add appropriety command to suite your need, checkout the sample file: <a href="https://gist.github.com/thedan06/6abfea860b09bd08dcb98a415b71c32c">Sample GitLab <code>gitlab-ci.yml</code></a>
+
+          <br><br>
+          <input type="checkbox" class="task-list-item-checkbox" checked="" disabled="">
+          This file trigger a pipeline when developer push changes to master branch, it contains instruct of how shoult GitLab-runner excute commands, i.e. run test then ssh from GitLab to WebServer and deploy changes automatically
+        </li>
+      </ol>
+
+      <p><img src="https://github.com/thedan06/gitlab-ci-cd/blob/master/CiCd.JPG" alt=""  style="max-width:100%;" data-canonical-src="https://placekitten.com/g/1200/800/"></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner">gitlab-ci-cd is maintained by <a href="https://github.com/thedan06"></a>TheDan06</a>.</span>
+        <span class="site-footer-credits">Is hosted in <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+
+    </section>
+
+  </body>
+</html>
